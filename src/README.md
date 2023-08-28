@@ -1,0 +1,2 @@
+# Execution
+- npx expo start
