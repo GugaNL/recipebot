@@ -16,7 +16,7 @@ type RecipeCardProps = {
 const Card = ({ title, image, duration, style }: RecipeCardProps) => {
   return (
     <TouchableOpacity style={[styles.container, style]}>
-      <ImageRecipe source={barbecure} />
+      <ImageRecipe source={barbecure} resizeMode="cover" />
       <Title numberOfLines={1}>{title}</Title>
       <View>
         <DurationIcon name="timer" />

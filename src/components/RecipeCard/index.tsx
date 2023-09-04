@@ -13,8 +13,8 @@ import {
 } from './styles';
 import { styles } from './styles';
 import { IRecipe } from '../../interfaces';
-
-import barbecure from '../../assets/imgs/greekbarbecue.png';
+import { BASE_URL } from '../../utils/constants';
+import emptyImage from '../../assets/imgs/no-image.png';
 
 type RecipeCardProps = {
   recipeItem: IRecipe;
@@ -32,7 +32,15 @@ const RecipeCard = ({ recipeItem, style }: RecipeCardProps) => {
           <Title numberOfLines={1}>{recipeItem.title}</Title>
         </ContentSmall>
 
-        <ImageRecipe source={{ uri: ''}} />
+        <ImageRecipe
+          source={{
+            uri:
+              (recipeItem.image?.path &&
+                `${BASE_URL}${recipeItem.image?.path}`) ||
+              emptyImage,
+          }}
+          resizeMode="cover"
+        />
       </Content>
 
       <ContentFooter>

@@ -7,11 +7,16 @@ export interface ICategory {
   title: string;
 }
 
+interface IImage {
+  filename: string;
+  path: string;
+}
+
 export interface IRecipe {
   id: string;
   title: string;
   category?: ICategory;
-  image?: string;
+  image?: IImage;
   rating: number;
   duration?: string;
   ingredients?: string;

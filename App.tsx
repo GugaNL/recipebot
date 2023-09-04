@@ -10,10 +10,20 @@ import Search from './src/screens/Search';
 import BackButton from './src/components/BackButton';
 import { ApolloProvider } from '@apollo/client';
 import { apolloClient } from './src/graphql/apollo/client';
+//Dev imports
+import Reactotron from 'reactotron-react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Stack = createStackNavigator();
 
 export default function App() {
+  if (__DEV__) {
+    Reactotron.setAsyncStorageHandler!(AsyncStorage)
+      .configure()
+      .useReactNative()
+      .connect();
+  }
+
   return (
     <ApolloProvider client={apolloClient}>
       <NavigationContainer theme={theme}>
